@@ -152,7 +152,7 @@
             this.button11.TabIndex = 11;
             this.button11.Text = "+";
             this.button11.UseVisualStyleBackColor = true;
-          
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 
@@ -171,6 +171,7 @@
             this.button13.TabIndex = 13;
             this.button13.Text = "=";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // textBox1
             // 

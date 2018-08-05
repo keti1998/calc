@@ -12,6 +12,9 @@ namespace calc
 {
     public partial class Form1 : Form
     {
+        double firstNumber;
+        string opr;
+
         public Form1()
         {
             InitializeComponent();
@@ -139,6 +142,30 @@ namespace calc
             }
         }
 
-      
+        private void button11_Click(object sender, EventArgs e)
+        {
+            firstNumber = double.Parse(textBox1.Text);
+            textBox1.Text = "0";
+            opr = "+";
+
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            double secondNumber;
+            secondNumber = double.Parse(textBox1.Text);
+            double result; 
+            if (opr=="+")
+            {
+                result = firstNumber + secondNumber;
+                textBox1.Text = Convert.ToString(result);
+                firstNumber = result;
+            }
+            else
+            {
+                textBox1.Text = Convert.ToString(secondNumber);
+            }
+        }
     }
 }
