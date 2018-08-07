@@ -145,8 +145,8 @@ namespace calc
         private void button11_Click(object sender, EventArgs e)
         {
             firstNumber = double.Parse(textBox1.Text);
-            textBox1.Text = "0";
-            opr = "+";
+            textBox1.Text = "";
+            opr = "add";
 
 
         }
@@ -156,16 +156,58 @@ namespace calc
             double secondNumber;
             secondNumber = double.Parse(textBox1.Text);
             double result; 
-            if (opr=="+")
+            if (opr=="add")
             {
                 result = firstNumber + secondNumber;
                 textBox1.Text = Convert.ToString(result);
-                firstNumber = result;
+                firstNumber =0;
+            }
+            else if (opr == "minus")
+            {
+                result = firstNumber - secondNumber;
+                textBox1.Text = Convert.ToString(result);
+                firstNumber = 0;
+            }
+            else if (opr == "mult")
+            {
+                result = firstNumber * secondNumber;
+                textBox1.Text = Convert.ToString(result);
+                firstNumber = 0;
+            }
+            else if (opr == "div")
+            {
+                result = firstNumber / secondNumber;
+                textBox1.Text = Convert.ToString(result);
+                firstNumber = 0;
             }
             else
             {
                 textBox1.Text = Convert.ToString(secondNumber);
             }
+            opr = "";
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            firstNumber = double.Parse(textBox1.Text);
+            textBox1.Text = "";
+            opr = "minus";
+
+
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            firstNumber = double.Parse(textBox1.Text);
+            textBox1.Text = "";
+            opr = "mult";
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            firstNumber = double.Parse(textBox1.Text);
+            textBox1.Text = "";
+            opr = "div";
         }
     }
 }
