@@ -147,20 +147,26 @@ namespace calc
             firstNumber = double.Parse(textBox1.Text);
             textBox1.Text = "";
             opr = "add";
-
+            button16.Enabled = true;
 
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
             double secondNumber;
+           
+            if (!double.TryParse(textBox1.Text, out secondNumber))
+            {
+                textBox1.Text = "";
+                //обработка, если не число 
+            }
             secondNumber = double.Parse(textBox1.Text);
-            double result; 
-            if (opr=="add")
+            double result;
+            if (opr == "add")
             {
                 result = firstNumber + secondNumber;
                 textBox1.Text = Convert.ToString(result);
-                firstNumber =0;
+                firstNumber = 0;
             }
             else if (opr == "minus")
             {
@@ -176,15 +182,13 @@ namespace calc
             }
             else if (opr == "div")
             {
+
                 result = firstNumber / secondNumber;
                 textBox1.Text = Convert.ToString(result);
                 firstNumber = 0;
+
             }
-            else
-            {
-                textBox1.Text = Convert.ToString(secondNumber);
-            }
-            opr = "";
+           
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -192,6 +196,7 @@ namespace calc
             firstNumber = double.Parse(textBox1.Text);
             textBox1.Text = "";
             opr = "minus";
+            button16.Enabled = true;
 
 
         }
@@ -201,6 +206,7 @@ namespace calc
             firstNumber = double.Parse(textBox1.Text);
             textBox1.Text = "";
             opr = "mult";
+            button16.Enabled = true;
         }
 
         private void button15_Click(object sender, EventArgs e)
@@ -208,6 +214,28 @@ namespace calc
             firstNumber = double.Parse(textBox1.Text);
             textBox1.Text = "";
             opr = "div";
+            button16.Enabled = true;
         }
+
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            bool check;
+            button16.Enabled = false;
+
+            check = int.TryParse(textBox1.Text, out int  s);
+            if(check)
+            {
+                textBox1.Text += ".";
+                firstNumber = double.Parse(textBox1.Text);
+            }
+       else
+            {
+                button16.Enabled = false;
+            }
+            
+
+        }
+
     }
 }
