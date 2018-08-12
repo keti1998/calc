@@ -188,7 +188,20 @@ namespace calc
                 firstNumber = 0;
 
             }
-           
+            else if (opr == "exp")
+            {
+                result = firstNumber;
+                for (int i = 0; i <secondNumber-1; i++)
+                {
+                    result = result*firstNumber;
+                    textBox1.Text = Convert.ToString(result);
+
+                }
+
+                firstNumber = 0; 
+            }
+
+
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -237,5 +250,12 @@ namespace calc
 
         }
 
+        private void button17_Click(object sender, EventArgs e)
+        {
+            firstNumber = double.Parse(textBox1.Text);
+            textBox1.Text = "";
+            opr = "exp";
+            button16.Enabled = true;
+        }
     }
 }
